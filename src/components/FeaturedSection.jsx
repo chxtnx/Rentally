@@ -1,33 +1,57 @@
-import { use } from "react";
+import { useRef } from "react";
 import { dummyCarData } from "../assets/assets";
 import CarCards from "./CarCards";
 import Title from "./Title";
-import { useNavigate } from "react-router-dom";
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 const FeaturedSection = () => {
-    const navigate = useNavigate();
-    return (
-        <div className="container mt-5">
-            
-            <Title 
-                title="Featured Cars" 
-                subtitle="Check out our most popular vehicles" 
-            />
+  const sliderRef = useRef();
 
-            <div className="row mt-4 gy-4">
-                {dummyCarData.map((car, index) => (
-                    <CarCards key={index} car={car} />
-                ))}
-            </div>
- 
-            <div className="text-center mb-2">
-                <button className="btn btn-primary" onClick={()=>navigate("/cars")}>
-                    View All Cars
-                </button>
-            </div>
+  const scroll = (dir) => {
+    const slider = sliderRef.current;
+    const card = slider.children[0];
 
+    const style = window.getComputedStyle(slider);
+    const gap = parseInt(style.gap) || 0;
+
+    const cardWidth = card.offsetWidth + gap;
+
+    slider.scrollBy({
+      left: dir === "left" ? -cardWidth : cardWidth,
+      behavior: "smooth",
+    });
+  };
+
+  return (
+    <div className="fleet-section">
+
+      <Title
+  subtitle="EXCLUSIVE COLLECTION"
+title="Top Luxury Picks"
+/>
+
+      <div className="slider-container">
+
+        {/* LEFT ARROW */}
+        <button className="arrow left" onClick={() => scroll("left")}>
+          <FiChevronLeft />
+        </button>
+
+        {/* SLIDER */}
+        <div className="slider" ref={sliderRef}>
+          {dummyCarData.slice(0, 5).map((car) => (
+             <CarCards key={car.id} car={car} />
+              ))}
         </div>
-    );
-}
+
+        {/* RIGHT ARROW */}
+        <button className="arrow right" onClick={() => scroll("right")}>
+          <FiChevronRight />
+        </button>
+
+      </div>
+    </div>
+  );
+};
 
 export default FeaturedSection;

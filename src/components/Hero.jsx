@@ -1,51 +1,35 @@
 import { useState } from "react";
-import { cityList } from "../assets/assets";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
-  const [pickuplocation, setPickuplocation] = useState("");
+  const navigate = useNavigate();
 
   return (
+
     <div className="hero">
-      <div className="hero-content">
-        
-        <div className="hero-text">
-          <h1>Find Your Perfect Car</h1>
-        </div>
+    <div className="hero-content text-center">
 
-        <div className="row mt-4 justify-content-center ms-3 me-3" >
-          <div className="col-lg-3 col-md-6 mb-2">
-            <select
-              className="form-select"
-              value={pickuplocation}
-              onChange={(e) => setPickuplocation(e.target.value)}
-            >
-              <option value="">Pickup Location</option>
-              {cityList.map((city, index) => (
-                <option key={index} value={city}>
-                  {city}
-                </option>
-              ))}
-            </select>
-            <p className="text-white mt-2 text-center">{pickuplocation?pickuplocation:"Please select a location"}</p>
-          </div>
+    <p className="premium-tag fade-up delay-1">•PREMIUM</p>
 
-          <div className="col-lg-3 col-md-6 mb-2">
-            <input type="date" className="form-control" />
-            <p className="text-white mt-2 text-center">Pickup Date</p>
-          </div>
+    <h1 className="fade-up delay-2">Find Your Drive</h1>
 
-          <div className="col-lg-3 col-md-6 mb-2">
-            <input type="date" className="form-control" />
-            <p className="text-white mt-2 text-center">Return Date</p>
-          </div>
+<p className="hero-quote fade-up delay-3">
+  Premium cars. Seamless journeys.
+</p>
+    
+    <button
+  className="explore-btn mt-4 fade-up delay-4"
+  onClick={() => navigate("/cars")}
+>
+  Explore →
+</button>
 
-          <div className="col-lg-3 col-md-6 mb-2">
-            <button className="btn btn-primary w-100">Search</button>
-          </div>
-        </div>
+  </div>
 
-      </div>
-    </div>
+  <div className="scroll-indicator">
+    <span></span>
+  </div>
+</div>
   );
 };
 

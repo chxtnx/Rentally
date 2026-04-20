@@ -1,49 +1,50 @@
-import {FaIndianRupeeSign} from "react-icons/fa6";
-import {IoMdPerson} from "react-icons/io";
+import { FaIndianRupeeSign } from "react-icons/fa6";
+import { IoMdPerson } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 
 const CarCards = ({ car }) => {
-    const navigate = useNavigate();
-    return (
-        <div className="col-lg-4 col-md-6 mb-4">
-            <div className="card car-card h-100">
-                <div className="image-wrapper">
-                    <img 
-                        src={car.image} 
-                        className="card-img-top" 
-                        alt={car.model} 
-                        onClick={()=>navigate(`/cars/${car.id}`)} style={{cursor:"pointer"}}
-                    />
-                </div>
+  const navigate = useNavigate();
 
-                <div className="card-body d-flex flex-column">
-                    <h5 className="card-title">
-                        {car.brand} {car.model}
-                    </h5>
+  return (
+    <div className="car-card">
 
-                    <div className="car-info mb-3">
-                        <span className="badge bg-light text-dark me-2">
-                            {car.year}
-                        </span>
-                        <span className="badge bg-success">
-                            <FaIndianRupeeSign /> {car.price_per_day}/day
-                        </span>
-                    </div>
-                    <div className="car-seats mb-3">
-                        <IoMdPerson /> {car.seating_capacity} Seats
-                    </div>
+      <img src={car.image} alt={car.model} />
+      <div className="car-info">
 
-                    <button className="btn rent-btn mt-auto w-100 text-white" disabled={!car.isAvailable} onClick={()=>navigate(`/cars/${car.id}`)}>
-                        {
-                            car.isAvailable ? "Available Now" : "Not Available"
-                            
-                        }
-                        
-                    </button>
-                </div>
-            </div>
-        </div>
-    );
+  <div>
+    <h5>{car.brand} {car.model}</h5>
+
+    <small>
+      <IoMdPerson /> {car.seating_capacity} • {car.transmission} • {car.fuel_type} • {car.location}
+    </small>
+
+    {/* AVAILABILITY */}
+    <small style={{ color: car.isAvailable ? "#00ffa2" : "#ff4d4d" }}>
+      {car.isAvailable ? "Available" : "Booked"}
+    </small>
+  </div>
+
+  <div className="right">
+    <span className="price">
+      <FaIndianRupeeSign /> {car.price_per_day}
+    </span>
+
+    <button
+      onClick={() => {
+        window.scrollTo(0, 0);
+        navigate(`/car-detail/${car.id}`);
+      }}
+    >
+      Details
+    </button>
+  </div>
+
+</div>
+      
+  
+
+    </div>
+  );
 };
 
 export default CarCards;

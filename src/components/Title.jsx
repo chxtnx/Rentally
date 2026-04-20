@@ -1,9 +1,13 @@
-const Title=({title,subtitle})=>{
-    return (
-        <div className="text-center mb-4">
-            <h2 className="display-4">{title}</h2>
-            <p className="lead">{subtitle}</p>
-        </div>
-    );
-}       
+const Title = ({ title, subtitle }) => {
+  return (
+    <div className="text-center">
+      {subtitle && <p className="fleet-subtitle">{subtitle}</p>}
+      
+      <h2 className="fleet-title">
+        {title}
+      </h2>
+    </div>
+  );
+};
+
 export default Title;

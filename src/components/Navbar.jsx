@@ -1,65 +1,70 @@
 import { NavLink } from "react-router-dom";
-import { MdCarRental } from "react-icons/md";
 import { CiSearch } from "react-icons/ci";
+import {useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
-      <div className="container-fluid">
+    <nav
+  className="navbar navbar-expand-lg position-absolute top-0 start-0 w-100 z-3 navbar-dark px-4"
+  style={{
+    background: "rgba(0,0,0,0.2)",
+    backdropFilter: "blur(8px)",
+  }}
+>
+  <div className="container-fluid">
 
-        {/* Logo */}
-        <NavLink className="navbar-brand" to="/">
-          <MdCarRental /> Rentally
-        </NavLink>
+     <NavLink className="navbar-brand fw-bold fs-3" to="/">
+     <span className="logo-r">R</span>
+     <span className="logo-rest">entally</span>
+     </NavLink>
 
-        {/* Toggle */}
+    <button
+      className="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+    >
+      <span className="navbar-toggler-icon"></span>
+    </button>
+
+    <div className="collapse navbar-collapse">
+
+      <div className="navbar-nav ms-auto gap-3">
+        <NavLink className="nav-link text-white" to="/">Home</NavLink>
+        <NavLink className="nav-link text-white" to="/cars">Cars</NavLink>
+        <NavLink className="nav-link text-white" to="/my-bookings">Bookings</NavLink>
+      </div>
+
+      <div className="d-flex align-items-center ms-4 gap-3">
+
+      <div className="search-wrapper d-flex align-items-center">
+          <input
+            type="text"
+            placeholder="Search..."
+            className="search-input"
+          />
+          <CiSearch className="search-icon " />
+        </div>
+
         <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNavAltMarkup"
-          aria-controls="navbarNavAltMarkup"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
+  className="dashboard-btn"
+  onClick={() => navigate("/owner/dashboard")}
+>
+  Dashboard
+</button>
+
+        <button className="login-btn" onClick={()=>navigate("/auth")}>
+          Login
         </button>
 
-        {/* Content */}
-        <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-
-          {/* Links */}
-          <div className="navbar-nav ms-auto">
-            <NavLink className="nav-link" to="/">Home</NavLink>
-            <NavLink className="nav-link" to="/cars">Cars</NavLink>
-            <NavLink className="nav-link" to="/my-bookings">My Bookings</NavLink>
-          </div>
-
-          {/* Search */}
-          <div className="d-flex mx-1 mx-md-2">
-            <input
-              type="text"
-              placeholder="Search Products"
-              className="form-control"
-            />
-            <span className="text-white fs-4 ms-2">
-              <CiSearch />
-            </span>
-          </div>
-
-          {/* Dashboard Button */}
-          <div className="d-flex my-1 mx-1">
-            <button className="btn btn-dark">Dashboard</button>
-          </div>
-
-          {/* Login Button */}
-          <div className="d-flex my-1 mx-1">
-            <button className="btn btn-primary">Login</button>
-          </div>
-
-        </div>
       </div>
-    </nav>
+      
+
+       </div>
+  </div>
+</nav>
   );
 };
 
