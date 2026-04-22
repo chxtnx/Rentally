@@ -17,7 +17,7 @@ const ManageCars = () => {
 return (
   <div className="manage-page text-white min-vh-100 py-5">
     
-    <div className="container">
+    <div className="container ">
       <Title
         title="Manage Cars"
         subtitle="View all listed cars, update their details, or remove them from the platform"
@@ -25,7 +25,7 @@ return (
     </div>
 
     <div className="container mt-4">
-      <div className="table-responsive">
+      <div className="table-responsive manage-table">
     <table className="table table-dark table-borderless align-middle">
             
             <thead>

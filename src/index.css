@@ -10,7 +10,8 @@
   position: relative;
   background-image: url('/bg1.jpg');
   background-size: cover;
-  background-position: center;
+  background-position:center;
+  background-repeat: no-repeat;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -18,6 +19,7 @@
   text-align: center;
   color: white;
   z-index: 1;
+  
 
 }
 
@@ -42,8 +44,9 @@
 
 .hero-text h1,
 .hero h1 {
-  font-size: 4rem;
+  font-size: clamp(2rem, 6vw, 4rem);
   font-weight: 600;
+  line-height: 1.2;
 }
 
 .hero-quote {
@@ -65,7 +68,7 @@
 .explore-btn:hover {
   background: #b8962e;
 }
-.fade-up {
+/* .fade-up {
   opacity: 0;
   transform: translateY(30px);
   animation: fadeUp 1s ease forwards;
@@ -94,7 +97,7 @@
   to {
     background-size: 110%;
   }
-}
+} */
 
 .scroll-indicator {
   position: absolute;
@@ -136,7 +139,7 @@
   }
 }
 .logo-r {
-  color: #d4af37; /* gold */
+  color: #d4af37; 
   font-size: 32px;
   font-weight: 700;
 }
@@ -219,7 +222,7 @@
 }
 
 .car-card {
-  min-width: 600px;
+  min-width: 300px;
   height: 430px;
   background: #111;
   border-radius: 20px;
@@ -245,7 +248,7 @@
   padding: 18px;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end; /* 👈 important */
+  align-items: flex-end;
 }
 
 
@@ -294,8 +297,8 @@
   transform: translateY(-50%);
   background: #c9a34e;
   border: none;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   cursor: pointer;
   z-index: 100;
@@ -306,7 +309,7 @@
 }
 
 .arrow svg {
-  font-size: 28px;
+  font-size: 25px;
   color: black;
 }
 .arrow.left { left: 20px; } .arrow.right { right: 20px; }
@@ -314,7 +317,7 @@
 .banner-section {
   height: 500px;
   background: url('/banner.png')center/cover no-repeat ;
-  background-attachment: fixed; /* 🔥 parallax */
+  background-attachment: fixed; 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -348,7 +351,7 @@
   display: flex;
   align-items: center;
   background: rgba(0, 0, 0, 0.85);
-  border-radius: 60px;
+  border-radius: 40px;
   padding: 10px 20px;
   gap: 20px;
   width: fit-content;
@@ -371,7 +374,7 @@
   background: black;
   border: none;
   color: white;
-  font-size: 16px; /* 🔥 bigger */
+  font-size: 16px; 
   font-weight: 500;
   outline: none;
 }
@@ -398,13 +401,13 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .testimonials-section {
-  background: #0d0d0d; /* same dark tone */
+  background: #0d0d0d; 
   color: white;
   padding: 50px 0;
 }
 
 .section-subtitle {
-  color: #d4a94a; /* gold */
+  color: #d4a94a; 
   letter-spacing: 2px;
   font-size: 12px;
   text-transform: uppercase;
@@ -482,7 +485,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   background: #0d0d0d;
   color: white;
   text-align: center;
-  padding: 80px 0;
+  padding: 80px;
 }
 
 .newsletter-section .section-subtitle {
@@ -633,9 +636,7 @@ hr {
   border-color: #222;
   margin: 40px 0;
 }
-/* ===== CAR DETAILS ===== */
 
-/* HERO CONTAINER */
 .cd-hero {
   padding-top: 30px;
   height: 50vh;
@@ -645,7 +646,7 @@ hr {
   overflow: hidden;
 }
 
-/* INNER FLEX */
+
 .cd-hero-inner {
   display: flex;
   align-items: center;
@@ -655,7 +656,7 @@ hr {
   margin-bottom: 0;
 }
 
-/* LEFT TEXT */
+
 .cd-hero-content {
   color: white;
   max-width: 500px;
@@ -673,7 +674,6 @@ hr {
   font-weight: 600;
 }
 
-/* RIGHT IMAGE */
 .cd-hero-image {
   flex: 1;
   display: flex;
@@ -684,10 +684,10 @@ hr {
   max-width: 600px;
   width: 100%;
   object-fit: contain;
-  transform: translateX(40px); /* 👈 push slightly right */
+  transform: translateX(40px);
 }
 
-/* SECTION */
+
 
 .cd-section {
   background: #0d0d0d;
@@ -715,7 +715,7 @@ hr {
   margin-bottom: 10px;
 }
 
-/* CARD */
+
 
 .cd-card {
   background: #141414;
@@ -763,11 +763,11 @@ hr {
   margin-top: 40px;
 }
 .cars-grid .car-card {
-  min-width: unset;   /* remove slider behavior */
-  width: 100%;        /* allow grid to control size */
+  min-width: unset;  
+  width: 100%;      
 }
 .cars-page {
-  background: #0b0b0b;   /* same as home */
+  background: #0b0b0b;   
   min-height: 100vh;
   padding: 80px 0;
 }
@@ -781,8 +781,6 @@ hr {
 .cars-title span {
   color: #c9a34e;
 }
-
-/* DASHBOARD TOP BAR */
 
 .dashboard-topbar {
   display: flex;
@@ -910,13 +908,11 @@ hr {
   font-weight: 600;
 }
 
-/* FORM WRAPPER */
 .addcar-form {
   max-width: 900px;
   margin: 0 auto;
 }
 
-/* GROUP */
 .form-group {
   margin-bottom: 20px;
   display: flex;
@@ -929,7 +925,7 @@ hr {
   color: #aaa;
 }
 
-/* ROW */
+
 .form-row {
   display: flex;
   gap: 20px;
@@ -939,7 +935,7 @@ hr {
   flex: 1;
 }
 
-/* INPUTS */
+
 .input-field {
   background: #111;
   border: 1px solid #2a2a2a;
@@ -1054,7 +1050,7 @@ hr {
   padding: 40px 0;
 }
 
-/* table wrapper */
+
 .table-container {
   width: 90%;
   margin: 30px auto;
@@ -1063,7 +1059,7 @@ hr {
   padding: 20px;
 }
 
-/* table */
+
 .custom-table {
   width: 100%;
   border-collapse: collapse;
@@ -1081,7 +1077,7 @@ hr {
   border-top: 1px solid #222;
 }
 
-/* car cell */
+
 .car-cell {
   display: flex;
   align-items: center;
@@ -1093,13 +1089,13 @@ hr {
   border-radius: 6px;
 }
 
-/* price */
+
 .price {
   color: #facc15;
   font-weight: bold;
 }
 
-/* payment */
+
 .payment-badge {
   background: rgba(59, 131, 246, 0.053);
   color: #60a5fa;
@@ -1108,7 +1104,7 @@ hr {
   font-size: 12px;
 }
 
-/* status */
+
 .status.confirmed {
   color: #22c55e;
 }
@@ -1117,11 +1113,40 @@ hr {
   color: #ef4444;
 }
 
-/* select */
+
 .status-select {
   background: #0b0f14;
   color: white;
   border: 1px solid #333;
   padding: 5px;
   border-radius: 6px;
+}
+@media (max-width: 768px) {
+  .hero {
+    background-size: 310%;
+    background-position:bottom; 
+  }
+  .premium-tag {
+    font-size: 12px;
+    letter-spacing: 2px;
+  }
+
+  .hero-quote {
+    font-size: 14px;
+  }
+
+  .explore-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+  .booking-bar{
+    flex-direction: column;
+    gap: 25px;
+    padding: 30px 40px;
+    
+  }
+  .booking-field {
+  border:none;
+}
+
 }

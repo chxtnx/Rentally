@@ -29,33 +29,32 @@ const Navbar = () => {
       <span className="navbar-toggler-icon"></span>
     </button>
 
-    <div className="collapse navbar-collapse">
+    <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
 
-      <div className="navbar-nav ms-auto gap-3">
+      <div className="navbar-nav ms-auto gap-2">
         <NavLink className="nav-link text-white" to="/">Home</NavLink>
         <NavLink className="nav-link text-white" to="/cars">Cars</NavLink>
-        <NavLink className="nav-link text-white" to="/my-bookings">Bookings</NavLink>
+        <NavLink className="nav-link text-white me-3" to="/my-bookings">Bookings</NavLink>
       </div>
 
-      <div className="d-flex align-items-center ms-4 gap-3">
+      <div className="d-flex align-items-center">
 
-      <div className="search-wrapper d-flex align-items-center">
+      <div className="search-wrapper d-flex align-items-center me-3 ">
           <input
             type="text"
             placeholder="Search..."
-            className="search-input"
+            className="search-input px-2 py-1 rounded-5"
           />
-          <CiSearch className="search-icon " />
         </div>
 
         <button
-  className="dashboard-btn"
+  className="dashboard-btn me-1"
   onClick={() => navigate("/owner/dashboard")}
 >
   Dashboard
 </button>
 
-        <button className="login-btn" onClick={()=>navigate("/auth")}>
+        <button className="login-btn me-1" onClick={()=>navigate("/auth")}>
           Login
         </button>
 

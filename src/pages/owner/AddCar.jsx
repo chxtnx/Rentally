@@ -77,7 +77,7 @@ const AddCar = () => {
           </div>
 
           {/* YEAR + PRICE + CATEGORY */}
-          <div className="form-row">
+          <div className="form-row d-flex flex-wrap">
             <div className="form-group">
               <label>Year</label>
               <input

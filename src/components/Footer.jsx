@@ -7,7 +7,7 @@ const Footer = () => {
     <footer className="footer">
 
       <div className="container contact-strip">
-        <div className="row text-center text-md-start">
+        <div className="row text-center text-md-start gy-5">
 
           <div className="col-md-4 d-flex align-items-center gap-3">
             <div className="icon-circle"><FaPhoneAlt /></div>
